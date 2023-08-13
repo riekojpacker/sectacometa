@@ -1,0 +1,284 @@
+@use 'base/reset';
+@use 'base/variable';
+@use 'base/function';
+
+%absolute {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+%background {
+  background-image: url("../img/bg.jpg"); 
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+}
+
+%no-select {
+  -webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-hktml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+// HEADER
+
+.header {
+	@include function.size(100%, 100vh);
+	@include function.display(flex, center, center, column);
+	position: relative;
+	overflow: hidden;
+	z-index: 0;
+
+	.bg { 
+    @include function.size(100%, 100%);
+		@extend %background;
+		@extend %absolute;
+		filter: blur(1.2px);
+		transform: scale(1.1);
+		z-index: 1;
+  }
+		
+	.shadow {
+		@include function.size(100%, 100%);
+		@extend %absolute;
+		background: rgb(0,0,0);
+		background: radial-gradient(circle, rgba(0,0,0,0.2) 0%, rgba(96,96,96,0.2) 50%, rgba(0,0,0,0.2) 100%);
+		z-index: 2;
+	}
+
+	&__container {
+		@extend %no-select;
+		position: relative;
+		text-align: center;
+		color: variable.$text;
+		padding: 0 16px;
+		z-index: 10;
+	}
+
+	&__img {
+		width: 160px;
+		border: 6px solid  #fff;
+		border-radius: 50%;
+		margin-bottom: 4px;
+		animation: around 5s infinite ease-out;
+
+    @keyframes around {
+      0% {
+        transform: rotate(-10deg)
+      } 
+
+      50% {
+        transform: rotate(10deg)
+      }
+      100% {
+        transform: rotate(-10deg)
+      }
+    }
+  }
+
+	&__title {
+    @include function.text(variable.$archivo, variable.$header__title, 700);
+  }
+	
+  &__paragraph {
+    @include function.text(variable.$raleway,variable.$header__paragraph, 600);
+		margin-bottom: 16px;
+  }
+  
+
+	&__btn {
+		@include function.text(variable.$lato, variable.$header__btn , 400);
+		display: inline-block;
+		cursor: pointer;
+		color: variable.$text;
+		background-color: variable.$dark-3;
+		text-decoration: none;
+		border-radius: 30px;
+		transition: all 210ms;
+		padding: 10px 20px;
+
+    &:hover {
+      background-color: #31313c;
+      -webkit-box-shadow: 0px 0px 17px 1px rgba(49,49,60,0.6);
+      -moz-box-shadow: 0px 0px 17px 1px rgba(49,49,60,0.6);
+      box-shadow: 0px 0px 17px 1px rgba(49,49,60,0.6);
+    }
+  }
+}
+
+
+
+
+
+// Information
+
+.info {  	
+	width: 100%;
+	padding-bottom: 19.2px;
+	margin-bottom: 1rem;
+
+	&__container {
+		$border: 2.8px #fff solid;
+		width: 100%;
+		background-color: variable.$rosa;
+		margin: 0 auto;
+		margin-bottom: 1.125rem;
+		
+		text-align: center;padding: clamp(0.9375rem, 2.5vw, 1.375rem) 0;
+		box-shadow: 0px 0px 20px 1px rgba(49,49,60,1);
+	}
+
+	&__title {
+		@include function.text(variable.$archivo, variable.$info__title, 600);
+	}
+
+	&__desc {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+		max-width: 1400px;
+		margin-bottom: 22px;
+	}
+
+  &__content {
+		display: flex;
+		justify-content: center;
+		background-color: variable.$dark-2;
+		width: 100%;
+		max-width: 1360px;
+		padding: 22px 10px;
+		margin: 0 22px;
+		border-radius: 10px;
+	}
+
+	&__paragraph {
+		max-width: 700px;
+		@include function.text(variable.$archivo, variable.$info__paragraph, 400);
+		text-align: center;
+		border-radius: 10px;
+	}
+
+
+	&__list {
+		width: 100%;
+		max-width: 1400px;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) ;
+		gap: 18px;
+		margin: 0 auto;
+		color: variable.$text;
+		list-style: none;
+		padding: 1.5rem 22px;
+	}
+
+	&__item {
+		@include function.display(flex, center, none, none);
+		@include function.text(variable.$archivo, variable.$info__item, 400);
+		min-height: 40px;
+		overflow: hidden;
+		background-color: variable.$dark-2;
+		border-radius: 10px;
+		text-decoration: none;
+		padding: clamp(0.5rem, 3vw, 0.875rem);
+
+		&:hover {
+			transform: scale(1.03);
+		}
+	}
+
+}
+
+
+.inv {
+	@include function.display(flex, center, center, column);
+	text-align: center;
+	width: 100%;
+	background-color: variable.$rosa;
+	padding: 64px 0;
+
+	&__title {
+		@include function.text(variable.$archivo, variable.$final__title, 500);
+		margin-bottom: 1.1375rem;
+		padding: 0 20px;
+	}
+
+	&__btn {
+		@include function.text(variable.$lato, variable.$header__btn , 400);
+		display: inline-block;
+		cursor: pointer;
+	
+		color: variable.$text;
+		background-color: variable.$dark-3;
+		text-decoration: none;
+		border-radius: 30px;
+		transition: all 210ms;
+		padding: 10px 20px;
+	
+		&:hover {
+			background-color: #31313c;
+			-webkit-box-shadow: 0px 0px 17px 1px rgba(49,49,60,0.6);
+			-moz-box-shadow: 0px 0px 17px 1px rgba(49,49,60,0.6);
+			box-shadow: 0px 0px 17px 1px rgba(49,49,60,0.6);
+		}
+	}
+	
+}
+
+
+
+
+
+
+// FOOTER
+
+.footer {
+	width: 100%;
+	background-color: variable.$footer__rosa;
+	min-height: 40px;
+}
+
+
+
+
+
+
+@media (width >= 450px) {
+	// HEADER
+
+	.header {
+		&__img {
+			width: 200px;
+		}
+	}
+}
+
+@media (width >= 650px) {
+	.header {
+		&__img {
+			width: 220px;
+		}
+	}
+}
+
+
+
+/*
+Div Info, cuando el viewport horizontal sea menor de 560px el
+info__container sera un display flex en vez de un grid.
+*/
+
+@media (width <= 560px) {
+		.info__list {
+			@include function.display(flex, center, center, column);
+		}
+
+		.info__item {
+			width: 100%;
+			max-width: 560px;
+		}
+}
