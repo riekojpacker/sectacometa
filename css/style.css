@@ -124,7 +124,13 @@ body {
   -moz-box-shadow: 0px 0px 17px 1px rgba(49, 49, 60, 0.6);
   box-shadow: 0px 0px 17px 1px rgba(49, 49, 60, 0.6);
 }
-
+hr{
+  color:#df326e;
+  background-color:#DF326E;
+  height: 5px;
+  border:0 none;
+  border-radius: 10px;
+}
 .info {
   width: 100%;
   padding-bottom: 19.2px;
@@ -132,12 +138,11 @@ body {
 }
 .info__container {
   width: 100%;
-  background-color: #df326e;
+  background-color: #282840;
   margin: 0 auto;
-  margin-bottom: 1.125rem;
   text-align: center;
   padding: clamp(0.9375rem, 1vw, 1.375rem) 0;
-  box-shadow: 0px 0px 20px 1px rgb(49, 49, 60);
+  box-shadow: 1px 1px 1px 1px rgb(49, 49, 60);
 }
 .info__title {
   font-family: "Archivo", sans-serif;
@@ -157,8 +162,8 @@ body {
   background-color: #282840;
   width: 100%;
   max-width: 1360px;
-  padding: 22px 10px;
-  margin: 0 22px;
+  padding: 20px 10px;
+  margin: 0px;
   border-radius: 10px;
 }
 .info__paragraph {
@@ -178,7 +183,7 @@ body {
   margin: 0 auto;
   color: #fff;
   list-style: none;
-  padding: 1.5rem 22px;
+  padding: 1rem 22px;
 }
 .info__item {
   display: flex;
